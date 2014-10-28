@@ -36,7 +36,7 @@ public class UserBasedRecommenderWithEvaluation {
 		System.out.println( "UserBasedRecommenderWithEvaluation" );
 		
 		try {
-			DataModel model = new FileDataModel( new File( "data/train.csv" ) );
+			DataModel model = new FileDataModel( new File( "data/merged.csv" ) );
 						
 			RecommenderEvaluator evaluator = new AverageAbsoluteDifferenceRecommenderEvaluator();
 			
