@@ -9,12 +9,14 @@ import org.apache.mahout.cf.taste.impl.common.LongPrimitiveIterator;
 import org.apache.mahout.cf.taste.impl.model.file.FileDataModel;
 import org.apache.mahout.cf.taste.model.DataModel;
 import org.apache.mahout.cf.taste.impl.recommender.GenericItemBasedRecommender;
+import org.apache.mahout.cf.taste.impl.similarity.EuclideanDistanceSimilarity;
 import org.apache.mahout.cf.taste.impl.similarity.LogLikelihoodSimilarity;
+import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;
 import org.apache.mahout.cf.taste.impl.similarity.TanimotoCoefficientSimilarity;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.apache.mahout.cf.taste.similarity.ItemSimilarity;
 
-public class ItemRecommender {
+public class UserBasedRecommender {
 
 	/**
 	 * Collaborative Filtering based on items using Mahout
@@ -27,8 +29,11 @@ public class ItemRecommender {
 			DataModel dm = new FileDataModel( new File( "data/train.csv" ) );
 			
 			//ItemSimilarity sim = new LogLikelihoodSimilarity( dm );
-			TanimotoCoefficientSimilarity sim = new TanimotoCoefficientSimilarity( dm );
+			//TanimotoCoefficientSimilarity sim = new TanimotoCoefficientSimilarity( dm );
 			
+			ItemSimilarity sim = new PearsonCorrelationSimilarity( dm );
+			//ItemSimilarity sim = new EuclideanDistanceSimilarity( dm );
+
 			GenericItemBasedRecommender recommender = new GenericItemBasedRecommender( dm, sim );
 			
 			int x = 1;
