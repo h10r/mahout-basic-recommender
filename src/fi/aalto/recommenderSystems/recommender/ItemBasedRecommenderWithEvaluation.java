@@ -27,7 +27,7 @@ public class ItemBasedRecommenderWithEvaluation {
 	public static void main(String[] args) throws IOException {
 		RandomUtils.useTestSeed();
 		
-		System.out.println( "UserBasedRecommenderWithEvaluation" );
+		System.out.println( "ItemBasedRecommenderWithEvaluation" );
 		
 		try {
 			DataModel model = new FileDataModel( new File( "data/merged.csv" ) );
